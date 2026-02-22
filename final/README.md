@@ -1,12 +1,13 @@
 # The Chartroom (MVP)
 
-Python + Flask + Gemini + SMS-first flow for pitch deck structuring and interview coaching.
+Python + Flask + Gemini + SMS-first flow for pitch deck structuring and interview coaching. This app is prepared to help first time interviewers and experienced interviewers to prepare themselves for the high pressure of interviews.
 
 ## Modes
 - `board_investors`
-- `interview_1on1`
-  - optional submode: `software_engineer_interview_prep`
-- `investor_pitch_prep`
+  -'choice of 3 modes <1> related to financial understandings and goals and how they are meant to achieve their financial goals, <2> one for understanding user experiences and prepared to tailor make the site to connect to potential users and how to fix the user experience of the site features that people want and features that people dont want, <3> Adoption and pushing to production good for reviewing the final spots where people need to see the risks of their publishing off to the market and how to address them before its too late'
+- `interview 1on1`
+  - optional submode: `software_engineer_interview_prep` and needed interview prep for interviewing for internships especially for unexperienced applicants so they do not fold under the pressure of a true interview.
+- `investor_pitch_prep` prepare to pitch the current startup to a new group of investors and properly prepare for the questions they will ask and what you need to do to be ready to properly interview with large stakes of money and the future of your startup on the line.
 
 ## Inputs
 - `company_context` (optional, recommended for existing-company pitches)
@@ -48,10 +49,6 @@ curl -X POST http://127.0.0.1:5000/api/session/<ID>/finalize
 ## Twilio webhook
 - Point incoming message webhook to: `http://<host>:5000/webhook/sms`
 - Text `START` to begin.
-
-## Output files
-Saved in `outputs/`:
-- `deck_outline_<timestamp>.json`
-- `reviewer_board_report_<timestamp>.json`
 - `interview_coach_report_<timestamp>.json`
 - `talking_points_<timestamp>.txt`
+
