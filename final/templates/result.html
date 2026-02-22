@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chartroom Result</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Session Result</h1>
+    <p>Session: {{ data.session_id }}</p>
+    <p>Mode: {{ data.mode }}{% if data.submode %} | Submode: {{ data.submode }}{% endif %}</p>
+    <pre>{{ data.final | tojson(indent=2) }}</pre>
+  </main>
+</body>
+</html>

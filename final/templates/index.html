@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Board</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>The Board</h1>
+      <p>AI board + interview architect</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="terminal-panel reveal-pop">
+      <h2>Session Briefing</h2>
+      <label for="modeSelect">Session Track</label>
+      <select id="modeSelect" aria-label="Session Track">
+        <option value="board_investors" selected>Board Review</option>
+        <option value="interview_1on1">1-on-1 Interview Coaching</option>
+        <option value="investor_pitch_prep">Investor Pitch Rehearsal</option>
+      </select>
+      <div id="subsections" class="pill-row">
+        <button class="submode-btn active" data-submode="">General Interview Practice</button>
+        <button class="submode-btn" data-submode="software_engineer_interview_prep">Software Engineer Interview Prep</button>
+      </div>
+      <div id="bossPanel" class="boss-panel">
+        <p>Board Review Path</p>
+        <div class="pill-row">
+          <button class="boss-btn active" data-boss="boss_1">Panel 1: Value Proposition Fit</button>
+          <button class="boss-btn" data-boss="boss_2">Panel 2: Product UX + Technical Risk</button>
+          <button class="boss-btn" data-boss="boss_3">Panel 3: Adoption + Go-To-Market</button>
+        </div>
+      </div>
+      <p id="sessionInfo" class="muted"></p>
+    </section>
+
+    <section class="terminal-panel reveal-pop delay-1">
+      <h2>Setup Profile</h2>
+      <label for="companyContext">Company Context (optional)</label>
+      <textarea id="companyContext" rows="5" placeholder="Company name, product, website URL, current customer feedback, and what you want to improve..."></textarea>
+      <label for="resume">Resume Background (optional)</label>
+      <textarea id="resume" rows="5" placeholder="Paste resume only if you want personal interview coaching layered in..."></textarea>
+      <div id="resumeUploadWrap" style="display:none;">
+        <label for="resumeFile">Upload Resume (.txt / .md)</label>
+        <input id="resumeFile" type="file" accept=".txt,.md,text/plain" />
+        <p class="muted">Upload is enabled for Software Engineer interview prep. If your file is PDF/DOCX, paste text instead.</p>
+      </div>
+      <label for="projectsText">Project Highlights (optional)</label>
+      <textarea id="projectsText" rows="4" placeholder="Optional: include startups or simple projects to strengthen your story..."></textarea>
+      <p class="muted">You can include projects whether they are startups or smaller side projects.</p>
+      <div id="experienceWrap">
+        <label for="experienceLevel">Experience Level (1-on-1 only)</label>
+        <select id="experienceLevel" aria-label="Experience Level">
+          <option value="undergraduate" selected>Undergraduate</option>
+          <option value="graduate">Graduate</option>
+          <option value="developer">Developer</option>
+          <option value="software_engineer">Software Engineer</option>
+        </select>
+      </div>
+      <div id="softwareYearsWrap" style="display:none;">
+        <label for="softwareYears">Software Engineer Experience</label>
+        <select id="softwareYears" aria-label="Software Engineer Experience">
+          <option value="under_5_years" selected>Under 5 years</option>
+          <option value="over_5_years">Over 5 years</option>
+        </select>
+      </div>
+      <div class="action-row">
+        <button id="startBtn">Start Session</button>
+        <button id="setBossBtn">Apply Board Path</button>
+      </div>
+    </section>
+
+    <section class="terminal-panel reveal-pop delay-2">
+      <h2>Live Conversation</h2>
+      <p class="muted">After starting, chat live with AI responses that keep your setup context.</p>
+      <div id="chatFeed" class="chat-feed"></div>
+      <div id="chatComposer" class="chat-composer">
+        <label for="chatMessage">Message</label>
+        <textarea id="chatMessage" rows="3" placeholder="Type your message to continue the conversation..." disabled></textarea>
+        <div class="action-row">
+          <button id="sendBtn" disabled>Send Message</button>
+          <button id="finalizeBtn" disabled>Finalize</button>
+        </div>
+      </div>
+      <div id="finalOutputWrap" class="final-output" style="display:none;">
+        <h3>Final Interview Output</h3>
+        <pre id="finalOutput"></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
